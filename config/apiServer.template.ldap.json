@@ -1,0 +1,41 @@
+{
+    "server": {
+        "host": "0.0.0.0",
+        "port": 4201
+    },
+    "fabrics": [
+        {
+            "fabricId": "fabric1",
+            "name": "Fabric 1",
+            "image": "<UrlToImageOrBase64Encoded>"
+        },
+        {
+            "fabricId": "fabric2",
+            "name": "Fabric 2",
+            "image": "<UrlToImageOrBase64Encoded>"
+        }
+    ],
+    "authentication": {
+        "server": {
+          "testToken": "localhost",
+          "<TOKEN>": "<DESCRIPTION>"
+        },
+        "user": {
+            "userTokenExpirationTime": "20d",
+            "userTokenSharedKey": "someKey",
+            "identityProvider": {
+                "type": "ldap",
+                "url": "ldaps://<ldapServerUrl>:1234",
+                "allowedUsersFileName": "../config/allowedUsers.json"
+            }
+        }
+    },
+    "influxDb": {
+        "host": "influxdb",
+        "database": "infiniband_radar"
+    },
+    "mongoDb": {
+        "host": "mongodb://mongodb:27017/",
+        "database": "infiniband_radar"
+    }
+}

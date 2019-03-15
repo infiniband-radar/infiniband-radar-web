@@ -1,0 +1,46 @@
+{
+  "defaultSeverity": "warning",
+  "extends": [
+    "tslint:recommended"
+  ],
+  "linterOptions": {
+    "exclude": [
+      "node_modules/**"
+    ]
+  },
+  "rules": {
+    "no-console": false,
+    "quotemark": [true, "single"],
+    "indent": [true, "spaces", 4],
+    "ter-indent": [true, 4],
+    "object-shorthand-properties-first": false,
+    "no-increment-decrement": false,
+    "interface-name": false,
+    "ordered-imports": false,
+    "object-literal-sort-keys": false,
+    "no-consecutive-blank-lines": false,
+    "no-var-requires": false,
+    "max-line-length": [
+      true,
+      130
+    ],
+    "member-ordering": [
+      true,
+      {
+        "order": [
+          "public-static-field",
+          "public-instance-field",
+          "private-static-field",
+          "private-instance-field",
+          "public-constructor",
+          "private-constructor",
+          "protected-instance-method",
+          "public-instance-method",
+          "public-static-method",
+          "private-instance-method",
+          "private-static-method"
+        ]
+      }
+    ]
+  }
+}

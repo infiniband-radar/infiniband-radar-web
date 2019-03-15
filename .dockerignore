@@ -1,0 +1,6 @@
+**/node_modules
+**/dist
+data
+server/config
+config.json
+allowedUsers.json

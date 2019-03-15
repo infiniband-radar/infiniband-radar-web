@@ -1,0 +1,29 @@
+<svg width="400" height="200" xmlns="http://www.w3.org/2000/svg">
+ <defs>
+  <filter height="200%" width="200%" y="-50%" x="-50%" id="svg_11_blur">
+   <feGaussianBlur stdDeviation="0" in="SourceGraphic"/>
+  </filter>
+ </defs>
+ <g>
+  <title>background</title>
+  <rect fill="#fff" id="canvas_background" height="202" width="402" y="-1" x="-1"/>
+  <g display="none" overflow="visible" y="0" x="0" height="100%" width="100%" id="canvasGrid">
+   <rect fill="url(#gridpattern)" stroke-width="0" y="0" x="0" height="100%" width="100%"/>
+  </g>
+ </g>
+ <g>
+  <title>Layer 1</title>
+  <rect rx="3" id="svg_4" height="25" width="120" y="48.867925" x="26.377358" stroke-width="1.5" stroke="#000" fill="#fff"/>
+  <text xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="47" id="svg_5" y="81.698108" x="161.320755" fill-opacity="null" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#000000">InfiniBand</text>
+  <text xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="47" id="svg_6" y="140.18868" x="162.45283" fill-opacity="null" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#000000">Radar</text>
+  <ellipse filter="url(#svg_11_blur)" ry="5" rx="5" id="svg_11" cy="61.509434" cx="37.358489" fill-opacity="null" stroke-opacity="null" stroke-width="1.5" stroke="#000" fill="#fff"/>
+  <rect rx="3" id="svg_12" height="25" width="120" y="81.320756" x="26.377358" stroke-width="1.5" stroke="#000" fill="#fff"/>
+  <ellipse filter="url(#svg_11_blur)" ry="5" rx="5" id="svg_13" cy="93.962264" cx="37.358489" fill-opacity="null" stroke-opacity="null" stroke-width="1.5" stroke="#000" fill="#fff"/>
+  <rect rx="3" id="svg_14" height="25" width="120" y="114.150945" x="26.377358" stroke-width="1.5" stroke="#000" fill="#fff"/>
+  <ellipse filter="url(#svg_11_blur)" ry="5" rx="5" id="svg_15" cy="126.792454" cx="37.358489" fill-opacity="null" stroke-opacity="null" stroke-width="1.5" stroke="#000" fill="#fff"/>
+  <line stroke-linecap="null" stroke-linejoin="null" id="svg_18" y2="61.320755" x2="16.037736" y1="61.320755" x1="25.471698" fill-opacity="null" stroke-opacity="null" stroke-width="1.5" stroke="#000" fill="none"/>
+  <line stroke-linecap="null" stroke-linejoin="null" id="svg_19" y2="93.773586" x2="16.037736" y1="93.773586" x1="25.471698" fill-opacity="null" stroke-opacity="null" stroke-width="1.5" stroke="#000" fill="none"/>
+  <line stroke-linecap="null" stroke-linejoin="null" id="svg_20" y2="126.603775" x2="16.037736" y1="126.603775" x1="25.471698" fill-opacity="null" stroke-opacity="null" stroke-width="1.5" stroke="#000" fill="none"/>
+  <line stroke-linecap="null" stroke-linejoin="null" id="svg_21" y2="149.622642" x2="16" y1="60.566038" x1="16.415094" fill-opacity="null" stroke-opacity="null" stroke-width="1.5" stroke="#000" fill="none"/>
+ </g>
+</svg>

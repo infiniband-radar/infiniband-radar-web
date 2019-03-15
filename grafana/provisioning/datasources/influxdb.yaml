@@ -1,0 +1,8 @@
+datasources:
+- name: 'InfluxDB'
+  org_id: 1
+  type: 'influxdb'
+  access: 'proxy'
+  url: 'http://influxdb:8086'
+  is_default: true
+  database: 'infiniband_radar'

@@ -1,0 +1,29 @@
+{
+    "physics": {
+        "barnesHut": {
+            "gravitationalConstant": -4000
+        },
+        "stabilization": {
+            "enabled": true,
+            "updateInterval": 5000
+        }
+
+    },
+    "layout": {
+        "randomSeed": 12,
+        "improvedLayout": false
+    },
+    "nodes": {
+        "shape": "box",
+        "color": {
+            "background": "#ececec"
+        }
+    },
+    "edges": {
+        "width": 2,
+        "selectionWidth": 3,
+        "color": {
+            "color": "#cc00ff"
+        }
+    }
+}

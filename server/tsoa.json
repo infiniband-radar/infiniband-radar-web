@@ -1,0 +1,17 @@
+{
+  "swagger": {
+    "outputDirectory": "./dist",
+    "entryFile": "./src/Server.ts",
+    "host": "localhost:4201",
+    "basePath": "/api/v1"
+  },
+  "routes": {
+    "basePath": "/api/",
+    "entryFile": "./src/Server.ts",
+    "routesDir": "./dist",
+    "authenticationModule": "./src/api/ApiAuthenticationMiddleware.ts"
+  },
+  "ignore": [
+    "**/node_modules/**"
+  ]
+}

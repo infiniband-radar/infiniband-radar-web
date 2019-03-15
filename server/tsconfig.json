@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "lib": [ "es2018" ],
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "target": "es5",
+    "downlevelIteration": true
+  },
+  "baseUrl": ".",
+  "paths": {
+  },
+  "include": [
+    "../common/models/*.ts",
+    "./src/**/*.ts"
+  ]
+}

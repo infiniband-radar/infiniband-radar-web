@@ -1,0 +1,44 @@
+{
+  "name": "infiniband-radar-client",
+  "version": "2.4.0",
+  "private": true,
+  "scripts": {
+    "dev": "npm run serve",
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint"
+  },
+  "dependencies": {
+    "circular-json": "^0.5.9",
+    "deep-equal": "^1.0.1",
+    "jquery": "^3.3.1",
+    "md5": "^2.2.1",
+    "moment": "^2.24.0",
+    "randomcolor": "^0.5.4",
+    "relative-time-parser": "^1.0.11",
+    "typescript": "^3.3.3333",
+    "vue": "^2.6.8",
+    "vue-class-component": "^7.0.1",
+    "vue-property-decorator": "^7.3.0",
+    "vue-router": "^3.0.2",
+    "vuex": "^3.1.0"
+  },
+  "devDependencies": {
+    "@beyonk/google-fonts-webpack-plugin": "^1.2.3",
+    "@types/circular-json": "^0.4.0",
+    "@types/deep-equal": "^1.0.1",
+    "@types/jquery": "^3.3.29",
+    "@types/md5": "^2.1.33",
+    "@types/moment": "^2.13.0",
+    "@types/randomcolor": "^0.5.1",
+    "@types/vis": "^4.21.11",
+    "@vue/cli-plugin-typescript": "^3.5.0",
+    "@vue/cli-service": "^3.5.0",
+    "vue-template-compiler": "^2.6.8"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 8"
+  ]
+}

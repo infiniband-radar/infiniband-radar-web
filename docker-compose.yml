@@ -1,0 +1,100 @@
+version: "3"
+services:
+  gateway:
+    build: ./gateway
+    restart: unless-stopped
+    depends_on:
+      - api
+      - grafana
+      - client
+    expose:
+      - "80"
+      - "443"
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ${GATEWAY_CERTS}:/etc/ssl/gateway:ro
+    logging:
+      driver: json-file
+      options:
+        max-size: "200k"
+        max-file: "5"
+
+  client:
+    build:
+      context: .
+      dockerfile: Dockerfile-client
+    restart: unless-stopped
+    expose:
+      - "80"
+    logging:
+      driver: json-file
+      options:
+        max-size: "200k"
+        max-file: "5"
+
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile-server
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=production
+    volumes:
+      - ./config/:/home/node/config/:ro
+    depends_on:
+      - influxdb
+      - mongodb
+    expose:
+      - "4201"
+    logging:
+      driver: json-file
+      options:
+        max-size: "200k"
+        max-file: "5"
+
+  grafana:
+    build: ./grafana
+    restart: unless-stopped
+    environment:
+      - GF_SERVER_ROOT_URL=http://127.0.0.1/grafana
+    depends_on:
+      - influxdb
+    expose:
+      - "3000"
+    logging:
+      driver: json-file
+      options:
+        max-size: "200k"
+        max-file: "5"
+
+  influxdb:
+    image: influxdb:1.6.2
+    restart: unless-stopped
+    volumes:
+      - ./data/influxdb/:/var/lib/influxdb/
+    expose:
+      - "8086"
+    logging:
+      driver: json-file
+      options:
+        max-size: "200k"
+        max-file: "5"
+
+  mongodb:
+    image: mongo:4.1.2
+    restart: unless-stopped
+    environment:
+      - MONGO_DATA_DIR=/data/mongodb
+      - MONGO_LOG_DIR=/dev/null
+    volumes:
+      - ./data/mongodb:/data/
+    expose:
+      - "27017"
+    command: mongod --logpath=/dev/null
+    logging:
+      driver: json-file
+      options:
+        max-size: "200k"
+        max-file: "5"
