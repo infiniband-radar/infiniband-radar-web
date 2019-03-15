@@ -205,6 +205,11 @@ export class TopologyDatabase {
             projection: { _id: 0 },
         });
 
+        if (!defaultTimestamps) {
+            TopologyDatabase.log.warn('No default timestamps are available! Starting the server for the first time?');
+            return;
+        }
+
         for (const fabricId of Object.keys(defaultTimestamps)) {
             this.cachedDefaultTopologyTimestamp[fabricId] = defaultTimestamps[fabricId];
             const root = await this.topologySnapshotCollection.findOne({ fabricId, timestamp: defaultTimestamps[fabricId] }, {
