@@ -34,6 +34,7 @@ export interface IdentityProviderConfig {
 export interface LdapConfig extends IdentityProviderConfig {
     url: string;
     allowedUsersFileName: string;
+    querySting: string;
 }
 
 export interface InfluxDbConfig {

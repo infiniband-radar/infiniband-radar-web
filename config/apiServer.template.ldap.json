@@ -26,7 +26,8 @@
             "identityProvider": {
                 "type": "ldap",
                 "url": "ldaps://<ldapServerUrl>:1234",
-                "allowedUsersFileName": "../config/allowedUsers.json"
+                "allowedUsersFileName": "../config/allowedUsers.json",
+                "queryString": "uid=$username"
             }
         }
     },
