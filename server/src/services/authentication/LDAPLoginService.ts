@@ -29,8 +29,9 @@ export class LDAPLoginService implements ILoginIdentityProvider {
     public checkCredentials(username: string, password: string): Promise<boolean> {
         return new Promise((resolve, reject) => {
             // To prevent ldap injection
-            const saveName = username.replace(/[^a-z0-9]/gi, '');
-            const query = this.config.querySting.replace('$username', saveName);
+            const saveName = String(username).replace(/[^a-z0-9]/gi, '');
+            console.log(this.config.queryString);
+            const query = this.config.queryString.replace('$username', saveName);
             this.client.bind(query, password, async (err) => {
                 if (!(await this.isUserAllowed(username))) {
                     reject(new LoginError('Not allowed to use this application', 403));
