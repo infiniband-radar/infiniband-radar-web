@@ -1,6 +1,6 @@
 {
   "name": "infiniband-radar-api-server",
-  "version": "2.4.0",
+  "version": "2.4.1",
   "description": "",
   "main": "src/Server.ts",
   "private": true,
@@ -18,17 +18,17 @@
     "deep-diff": "^1.0.2",
     "express": "^4.16.4",
     "influx": "^5.0.7",
-    "jsonwebtoken": "^8.5.0",
+    "jsonwebtoken": "^8.5.1",
     "ldapjs": "^1.0.2",
     "md5": "^2.2.1",
     "method-override": "^3.0.0",
-    "mongodb": "^3.1.13",
+    "mongodb": "^3.2.1",
     "on-finished": "^2.3.0",
     "pretty-swag": "^0.2.2",
     "threads": "^0.12.1",
     "ts-node": "^8.0.3",
     "tsoa": "^2.3.8",
-    "typescript": "^3.3.3333",
+    "typescript": "^3.3.4000",
     "typescript-ioc": "^1.2.5"
   },
   "devDependencies": {
@@ -38,11 +38,11 @@
     "@types/jsonwebtoken": "^8.3.2",
     "@types/ldapjs": "^1.0.3",
     "@types/md5": "^2.1.33",
-    "@types/mongodb": "^3.1.21",
+    "@types/mongodb": "^3.1.22",
     "@types/on-finished": "^2.3.1",
     "cross-env": "^5.2.0",
     "ts-node-dev": "^1.0.0-pre.32",
-    "tslint": "^5.13.1",
+    "tslint": "^5.14.0",
     "tslint-config-airbnb": "^5.11.1"
   }
 }
