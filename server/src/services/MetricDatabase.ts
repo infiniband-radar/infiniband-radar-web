@@ -154,6 +154,7 @@ export class MetricDatabase {
 
         for (const fabric of this.configService.getFabricConfigs()) {
             const fabricId = fabric.fabricId;
+            // We have to trigger the first wait by ourselves
             this.globalMetricCache[fabricId] = new Promise(async (resolve) => {
                 await this.updateGlobalMetricCache(fabricId);
                 this.globalMetricCache[fabricId].then(resolve);
