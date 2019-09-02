@@ -6,7 +6,7 @@
         <div class="center-content">
             <div class="card box-shadow">
                 <ul class="clear-list">
-                    <li v-for="fabric of fabrics" :key="fabric.fabricId">
+                    <li v-for="fabric of displayedFabrics" :key="fabric.fabricId">
                         <router-link
                                 :to="`/fabric/${fabric.fabricId}`"
                                 @click.native="onClickRouterLink"
@@ -18,6 +18,9 @@
                                 </div>
                             </div>
                         </router-link>
+                    </li>
+                    <li v-if="!displayHidden" class="show-more">
+                        <p @click="displayMoreFabrics" class="clickable">Display {{hiddenFabricCount}} more</p>
                     </li>
                 </ul>
             </div>
@@ -40,6 +43,8 @@ export default class FabricSelection extends Vue {
 
     private requiresLogin = false;
 
+    private displayHidden = false;
+
     protected async beforeCreate() {
         this.$store.dispatch('ensureFabricList');
         this.requiresLogin = !!(await ApiClient.getLoginConfig()).loginType;
@@ -47,6 +52,21 @@ export default class FabricSelection extends Vue {
 
     private get fabrics(): FabricModel[] {
         return this.$store.state.fabrics;
+    }
+
+    private get displayedFabrics(): FabricModel[] {
+        if (!this.displayHidden) {
+            return this.fabrics.filter((fabric) => !fabric.hideFromInitialSelection);
+        }
+        return this.fabrics;
+    }
+
+    private get hiddenFabricCount(): number {
+        return this.fabrics.filter((fabric) => fabric.hideFromInitialSelection).length;
+    }
+
+    private displayMoreFabrics() {
+        this.displayHidden = true;
     }
 
     private onClickRouterLink() {
@@ -80,7 +100,12 @@ export default class FabricSelection extends Vue {
     }
 
     .fabric {
+        font-size: 30px;
         display: flex;
+    }
+
+    .fabric-link {
+        text-decoration: none;
     }
 
     .is-fetching-data {
@@ -93,26 +118,32 @@ export default class FabricSelection extends Vue {
     }
 
     .fabric-info {
+        display: flex;
         min-width: 200px;
-        display: inline-block;
+        justify-content: center;
+        align-items: center;
     }
 
     .fabric-name {
         margin: 0;
         alignment-baseline: center;
         display: inline-block;
-        line-height: 80px;
         width: 100%;
         text-align: center;
-        font-size: 30px;
         color: black;
     }
 
     .farbic-image {
-        height: 80px;
-        width: 80px;
-        background-size: 80px 80px;
+        height: 3em;
+        width: 3em;
+        background-size: 3em 3em;
         border-right: 1px solid var(--border-gray);
+    }
+
+    .show-more p {
+        margin: 0.1em;
+        padding: 0.5em;
+        text-align: center;
     }
 
     li:not(:last-child) {

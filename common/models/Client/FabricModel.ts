@@ -4,4 +4,5 @@ export interface FabricModel {
     fabricId: FabricId;
     name: string;
     image: string;
+    hideFromInitialSelection: boolean;
 }

@@ -12,6 +12,7 @@ export interface FabricConfig {
     fabricId: FabricId;
     name: string;
     image: string;
+    hideFromInitialSelection?: boolean;
 }
 
 export interface AuthenticationConfig {

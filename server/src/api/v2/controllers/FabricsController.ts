@@ -18,6 +18,7 @@ export class FabricsController extends Controller {
                 fabricId: fabricConfig.fabricId,
                 name: fabricConfig.name,
                 image: fabricConfig.image,
+                hideFromInitialSelection: (fabricConfig.hideFromInitialSelection || false),
             });
         }
         return result;

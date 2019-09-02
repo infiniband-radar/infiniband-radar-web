@@ -53,7 +53,8 @@ A pre-packaged Grafana instance will also be available under https://127.0.0.1/g
         {
             "fabricId": "fabric2",
             "name": "Fabric 2",
-            "image": "<UrlToImageOrBase64Encoded>"
+            "image": "<UrlToImageOrBase64Encoded>",
+            "hideFromInitialSelection": true // need to click to see it in fabric selection
         }
     ],
     "authentication": { // The token must match the token in the daemon config
