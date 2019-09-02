@@ -3,7 +3,7 @@
     "outputDirectory": "./dist",
     "entryFile": "./src/Server.ts",
     "host": "localhost:4201",
-    "basePath": "/api/v1",
+    "basePath": "/api",
     "schemes": ["http"]
   },
   "routes": {
