@@ -14,8 +14,10 @@ import { IS_DEVELOPMENT_ENVIRONMENT } from '../lib/Environment';
 
 // Needed so the crawler finds all references
 import './v2/ApiV2Base';
+import {Logger} from '../lib/Logger';
 
 export class ApiServer {
+    private static readonly log = Logger.getLogger(ApiServer);
     private readonly app: express.Express;
     private readonly server: http.Server;
 
@@ -29,7 +31,7 @@ export class ApiServer {
 
         this.app.use((req, res, next) => {
             if (IS_DEVELOPMENT_ENVIRONMENT) {
-                console.log(req.path);
+                ApiServer.log.debug(`Requested path (${req.method}) '${req.path}'`);
             }
             const start = performance.now();
             onFinished(res, (err) => {

@@ -22,6 +22,7 @@ export class UserDatabase {
     public async setup() {
         this.client = await MongoClient.connect(this.config.host, {
             useNewUrlParser: true, // TODO: Can be removed when mongoDriver is finally updated
+            useUnifiedTopology: true,
         });
         UserDatabase.log.info(`Setup '${this.config.host}${this.config.database}'`);
         this.db = this.client.db(this.config.database);
