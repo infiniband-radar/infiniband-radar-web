@@ -30,6 +30,7 @@
     "@types/jquery": "^3.3.31",
     "@types/md5": "^2.1.33",
     "@types/moment": "^2.13.0",
+    "@types/node": "^12.7.3",
     "@types/randomcolor": "^0.5.3",
     "@types/vis": "^4.21.19",
     "@vue/cli-plugin-typescript": "^3.11.0",
