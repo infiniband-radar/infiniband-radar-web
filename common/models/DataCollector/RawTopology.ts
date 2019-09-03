@@ -1,9 +1,12 @@
-import { CaGuid, RawNodeType } from '../AliasTypes';
+//import { CaGuid, RawNodeType } from '../AliasTypes';
+// TODO: caGuid fields must be of type 'CaGuid' but alias types are not _yet_ supported
+// TODO: type fields must be of type 'RawNodeType'
+// TODO: see: https://github.com/lukeautry/tsoa/issues/429
 
 export interface RawTopologyCa {
-    guid: CaGuid;
+    guid: string;
     description: string;
-    type: RawNodeType;
+    type: string;
     subnetManager?: {
         state: string,
         priority: number,
@@ -11,10 +14,10 @@ export interface RawTopologyCa {
 }
 
 export interface RawTopologyPort {
-    caGuid: CaGuid;
+    caGuid: string;
     portNumber: number;
 
-    toCaGuid?: CaGuid;
+    toCaGuid?: string;
     toPortNumber?: number;
 
     speed?: string;

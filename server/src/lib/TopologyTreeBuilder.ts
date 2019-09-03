@@ -6,7 +6,7 @@ import {
     TopologyRoot,
 } from '../../../common/models/Client/TopologyTreeModels';
 import { RawTopology, RawTopologyCa } from '../../../common/models/DataCollector/RawTopology';
-import { HostType, RawHostTypeToEnum, RawLinkSpeedToDetails } from '../../../common/models/AliasTypes';
+import {HostType, RawHostTypeToEnum, RawLinkSpeedToDetails, RawNodeType} from '../../../common/models/AliasTypes';
 import * as md5 from 'md5';
 
 export class TopologyTreeBuilder {
@@ -17,7 +17,7 @@ export class TopologyTreeBuilder {
 
         for (const rawCa of rawTopology.cas) {
             const hostname = TopologyTreeBuilder.getHostname(rawCa);
-            const type = RawHostTypeToEnum(rawCa.type);
+            const type = RawHostTypeToEnum(rawCa.type as RawNodeType);
             const description = TopologyTreeBuilder.getCaDescription(type, rawCa);
             const subnetManager = rawCa.subnetManager;
             if (!hostMap[hostname]) {

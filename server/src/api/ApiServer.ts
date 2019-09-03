@@ -36,11 +36,13 @@ export class ApiServer {
             const start = performance.now();
             onFinished(res, (err) => {
                 const end = performance.now();
+                const tookInMs = Math.round(end - start);
+                ApiServer.log.debug(`Took ${tookInMs} ms to process (${req.method}) '${req.path}' StatusCode: ${res.statusCode}`);
                 metricDb.selfMonitoring.writeApiResponseTime(
                     req.method,
                     req.path,
                     res.statusCode,
-                    Math.round(end - start),
+                    tookInMs,
                 );
             });
             next();
