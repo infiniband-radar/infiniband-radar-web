@@ -19,7 +19,7 @@
                             </div>
                         </router-link>
                     </li>
-                    <li v-if="!displayHidden" class="show-more">
+                    <li v-if="hiddenFabricCount > 0" class="show-more">
                         <p @click="displayMoreFabrics" class="clickable">Display {{hiddenFabricCount}} more</p>
                     </li>
                 </ul>
@@ -62,7 +62,10 @@ export default class FabricSelection extends Vue {
     }
 
     private get hiddenFabricCount(): number {
-        return this.fabrics.filter((fabric) => fabric.hideFromInitialSelection).length;
+        if (!this.displayHidden) {
+            return this.fabrics.filter((fabric) => fabric.hideFromInitialSelection).length;
+        }
+        return 0;
     }
 
     private displayMoreFabrics() {
