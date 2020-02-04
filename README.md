@@ -34,6 +34,12 @@ The interface will then be available under https://127.0.0.1/
 
 A pre-packaged Grafana instance will also be available under https://127.0.0.1/grafana
 
+# Update an existing instance 
+```sh
+git pull origin master
+GATEWAY_CERTS="$PWD/ssl_certs" docker-compose up --build -d
+```
+
 # Configuration
 
 `/config/apiServer.json`
