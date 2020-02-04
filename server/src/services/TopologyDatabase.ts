@@ -45,13 +45,7 @@ export class TopologyDatabase {
         TopologyDatabase.log.info(`Setup '${this.config.host}${this.config.database}'`);
         this.db = this.client.db(this.config.database);
         this.topologySnapshotCollection = await this.db.createCollection<TopologySnapshot>('topologySnapshot');
-        this.topologyDefaultTimestampCollection = await this.db.createCollection<SingletonTopologyDefaultTimestamp>(
-            'topologyDefaultTimestamp',
-            {
-                capped: true,
-                max: 1, // Allow just one document in the collection
-                size: 1024 * 1024 * 2, // Size has to be specified. 2MiByte should be enough
-            });
+        this.topologyDefaultTimestampCollection = await this.db.createCollection<SingletonTopologyDefaultTimestamp>('topologyDefaultTimestamp');
         await this.topologySnapshotCollection.createIndex({ fabricId : 1, timestamp: 1 });
         await this.updateCache();
     }
