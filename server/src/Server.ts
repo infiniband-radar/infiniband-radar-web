@@ -5,10 +5,10 @@ import { Logger } from './lib/Logger';
 import { MetricDatabase } from './services/MetricDatabase';
 import { TopologyDatabase } from './services/TopologyDatabase';
 import { UserDatabase } from './services/UserDatabase';
-import {AuthenticationService} from './services/AuthenticationService';
+import { AuthenticationService } from './services/AuthenticationService';
 
-class Server {
 
+export class Server {
     private static readonly log = Logger.getLogger(Server);
 
     @Inject
@@ -45,5 +45,3 @@ class Server {
         );
     }
 }
-
-new Server();

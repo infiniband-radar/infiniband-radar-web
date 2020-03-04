@@ -1,21 +1,19 @@
 # InfiniBand Radar Client & API Server
 
-If you have any questions please [open an issue](https://github.com/infiniband-radar/infiniband-radar-daemon/issues)
+If you have any questions please [open an issue](https://github.com/infiniband-radar/infiniband-radar-daemon/issues).
 
-This repository contains the web interface and API server.
-
-The API and WebClient **can be run on a server that is not connected to the InfiniBand**.
-
+This repository contains the web interface and API server.  
+The API and WebClient **can be run on a server that is not connected to the InfiniBand**.  
 To run a complete setup you need to install the [daemon](https://github.com/infiniband-radar/infiniband-radar-daemon) on a server that is connected to a InfiniBand fabric.
 
 ![InfiniBand-Radar](./screenshot1.png)
 
-## Requirements: 
+## Requirements
  - A folder with SSL files called `cert.pem` and `key.pem`
  - docker >= 17.05 and [docker-compose](https://github.com/docker/compose/releases)
  - Ports 80 and 443 available
 
-## Start a fresh installation:
+## Start a fresh installation
 1. Clone this repo
 2. Copy the `*.template.json` to `*.json` from `./config` and edit them to your needs
 3. Share the server keys with your daemon config
@@ -44,7 +42,7 @@ GATEWAY_CERTS="$PWD/ssl_certs" docker-compose up --build -d
 
 `/config/apiServer.json`
 
-```json
+```json5
 {
     "server": { // API webserver configuration, if you are using docker-compose leave it as it is
         "host": "0.0.0.0",
@@ -86,7 +84,8 @@ GATEWAY_CERTS="$PWD/ssl_certs" docker-compose up --build -d
     "mongoDb": {
         "host": "mongodb://mongodb:27017/",
         "database": "infiniband_radar"
-    }
+    },
+    "logLevel": "Debug" // Available: Debug, Info, Warning, Error
 }
 ```
 

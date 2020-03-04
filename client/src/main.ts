@@ -11,7 +11,7 @@ import 'flot/jquery.flot.time';
 import 'flot/jquery.flot.crosshair';
 import 'flot/jquery.flot.selection';
 
-import './3dparty/flot/jquery.flot.byte';
+import 'flot/jquery.flot.byte';
 
 // Add and use a precise time format
 // Otherwise it would show: 'a few seconds' instead of '3 seconds'

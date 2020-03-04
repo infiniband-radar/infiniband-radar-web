@@ -38,5 +38,6 @@
     "mongoDb": {
         "host": "mongodb://mongodb:27017/",
         "database": "infiniband_radar"
-    }
+    },
+    "logLevel": "Debug"
 }

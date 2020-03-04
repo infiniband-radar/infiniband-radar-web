@@ -1,11 +1,20 @@
-enum LogLevel {
-    Error = '\x1b[31mERROR\x1b[0m',
-    Warning = '\x1b[33mWARN\x1b[0m',
-    Info = '\x1b[36mINFO\x1b[0m',
-    Debug = '\x1b[37mDebug\x1b[0m',
+export enum LogLevel {
+    Unknown,
+    Error,
+    Warning,
+    Info,
+    Debug,
 }
 
 export class Logger {
+    private static globalLogLevel: LogLevel = LogLevel.Debug;
+    private static logLevelText: Readonly<{[level: number]: string}> = {
+        [LogLevel.Error]: '\x1b[31mERROR\x1b[0m',
+        [LogLevel.Warning]: '\x1b[33mWARN\x1b[0m',
+        [LogLevel.Info]: '\x1b[36mINFO\x1b[0m',
+        [LogLevel.Debug]: '\x1b[37mDebug\x1b[0m',
+    };
+
     private readonly name: string;
 
     private constructor(name: string) {
@@ -53,8 +62,37 @@ export class Logger {
         return new Logger(type.name);
     }
 
+    /**
+     * Sets the global log level of the application
+     * @param minLogLevel Minimum log level that is printed
+     */
+    public static setGlobalLogLevel(minLogLevel: LogLevel) {
+        this.globalLogLevel = minLogLevel;
+        const lvlText = Logger.logLevelText[minLogLevel];
+        console.log(`Log level is: [${lvlText}]`);
+    }
+
+    public static setGlobalLogLevelFromString(minLogLevel: string) {
+        const lvl: LogLevel = LogLevel[minLogLevel];
+        if (!lvl) {
+            const error = new Error(`Invalid log level '${minLogLevel}'`);
+            error.stack = error.stack.split('\n', 3).slice(0, 2).join('\n');
+            throw error;
+        }
+        this.setGlobalLogLevel(lvl);
+    }
+
+    private shouldBeLogged(logLevel: LogLevel): boolean {
+        return logLevel <= Logger.globalLogLevel;
+    }
+
     private log(logLevel: LogLevel, ...args) {
-        console.log.apply(console, [`[${new Date().toUTCString()}][${logLevel}][${this.name}]`, ...args]);
+        if (this.shouldBeLogged(logLevel)) {
+            const timestamp = new Date().toUTCString();
+            const lvlText = Logger.logLevelText[logLevel];
+
+            console.log.apply(console, [`[${timestamp}][${lvlText}][${this.name}]`, ...args]);
+        }
     }
 
 }

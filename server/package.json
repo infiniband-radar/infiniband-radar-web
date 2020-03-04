@@ -1,12 +1,12 @@
 {
   "name": "infiniband-radar-api-server",
-  "version": "2.4.4",
+  "version": "2.4.5",
   "description": "",
   "main": "src/Server.ts",
   "private": true,
   "scripts": {
-    "start": "ts-node src/Server.ts",
-    "dev": "cross-env NODE_ENV=development ts-node-dev --inspect --respawn --ignore-watch node_modules --type-check src/Server.ts",
+    "start": "ts-node src/Main.ts",
+    "dev": "cross-env NODE_ENV=development ts-node-dev --inspect --respawn --ignore-watch node_modules --type-check src/Main.ts",
     "tslint": "tslint -p .",
     "build": "tsoa swagger && pretty-swag -i dist/swagger.json -o dist/documentation.html && tsoa routes",
     "test": "echo \"Error: no test specified\" && exit 1"

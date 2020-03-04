@@ -2,6 +2,7 @@ import { AutoWired, Singleton } from 'typescript-ioc';
 import * as fs from 'fs';
 import * as path from 'path';
 import { FabricId } from '../../../common/models/AliasTypes';
+import { LogLevel } from '../lib/Logger';
 
 export interface ServerConfig {
     host: string;
@@ -54,6 +55,7 @@ export interface IConfig {
     authentication: AuthenticationConfig;
     influxDb: InfluxDbConfig;
     mongoDb: MongoDbConfig;
+    logLevel: string;
 }
 
 function niceStringifyJson(data: any): string {
@@ -94,13 +96,32 @@ export class ConfigService {
         return this.config.mongoDb;
     }
 
+    public getLogLevelAsString(): string {
+        return this.config.logLevel;
+    }
+
     private loadAndResaveConfig() {
         const absPath = path.resolve(__dirname, ConfigService.configPath);
         this.config = JSON.parse(fs.readFileSync(absPath, 'utf8'));
+        this.applyPatches();
         try {
             fs.writeFileSync(absPath, niceStringifyJson(this.config), 'utf8');
         } catch (e) {
             // Ignored. Maybe the file is write protected
+        }
+    }
+
+    /**
+     * This function is used to apply patches to the config.
+     * For example when the log levels were introduced, but not all configs had it set.
+     */
+    private applyPatches() {
+        this.applyPatchLogLevel();
+    }
+
+    private applyPatchLogLevel() {
+        if (!this.config.logLevel) {
+            this.config.logLevel = LogLevel[LogLevel.Info];
         }
     }
 }
