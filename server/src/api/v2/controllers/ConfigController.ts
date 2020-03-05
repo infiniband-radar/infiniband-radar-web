@@ -26,8 +26,8 @@ export class ConfigController extends Controller {
             return defaultClientConfig;
         }
 
-        assert(req.user);
-        return this.userDb.getClientConfig(req.user);
+        assert(req['user']);
+        return this.userDb.getClientConfig(req['user']);
     }
 
     @Security('user')
@@ -37,7 +37,7 @@ export class ConfigController extends Controller {
             return;
         }
 
-        assert(req.user);
-        await this.userDb.setClientConfig(req.user, newConfig);
+        assert(req['user']);
+        await this.userDb.setClientConfig(req['user'], newConfig);
     }
 }
