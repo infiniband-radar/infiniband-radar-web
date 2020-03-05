@@ -1,4 +1,4 @@
-FROM grafana/grafana:6.0.1
+FROM grafana/grafana:6.6.2
 
 COPY ./grafana.ini /etc/grafana/grafana.ini
 
