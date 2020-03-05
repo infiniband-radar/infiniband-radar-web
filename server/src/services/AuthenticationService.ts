@@ -1,4 +1,4 @@
-import {AutoWired, Inject, Singleton} from 'typescript-ioc';
+import {OnlyInstantiableByContainer, Inject, Singleton} from 'typescript-ioc';
 import { LDAPLoginService } from './authentication/LDAPLoginService';
 import * as jwt from 'jsonwebtoken';
 import { ConfigService, LdapConfig } from './ConfigService';
@@ -11,7 +11,7 @@ interface UserTokenModel {
 }
 
 @Singleton
-@AutoWired
+@OnlyInstantiableByContainer
 export class AuthenticationService {
     private static readonly log = Logger.getLogger(AuthenticationService);
 

@@ -1,4 +1,4 @@
-import { AutoWired, Inject, Singleton } from 'typescript-ioc';
+import { OnlyInstantiableByContainer, Inject, Singleton } from 'typescript-ioc';
 import { ConfigService } from './ConfigService';
 import { Collection, Db, MongoClient } from 'mongodb';
 import { Logger } from '../lib/Logger';
@@ -15,7 +15,7 @@ import { ApiError } from '../api/ApiError';
 import { SingletonTopologyDefaultTimestamp } from '../models/mongoDb/SingletonTopologyDefaultTimestamp';
 
 @Singleton
-@AutoWired
+@OnlyInstantiableByContainer
 export class TopologyDatabase {
     private static readonly log = Logger.getLogger(TopologyDatabase);
 

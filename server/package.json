@@ -29,7 +29,7 @@
     "ts-node": "^8.6.2",
     "tsoa": "^2.5.13",
     "typescript": "^3.8.3",
-    "typescript-ioc": "^1.2.5"
+    "typescript-ioc": "^3.0.4"
   },
   "devDependencies": {
     "@types/circular-json": "^0.4.0",

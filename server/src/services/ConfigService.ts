@@ -1,4 +1,4 @@
-import { AutoWired, Singleton } from 'typescript-ioc';
+import { OnlyInstantiableByContainer, Singleton } from 'typescript-ioc';
 import * as fs from 'fs';
 import * as path from 'path';
 import { FabricId } from '../../../common/models/AliasTypes';
@@ -63,7 +63,7 @@ function niceStringifyJson(data: any): string {
 }
 
 @Singleton
-@AutoWired
+@OnlyInstantiableByContainer
 export class ConfigService {
     private static readonly configPath = '../../../config/apiServer.json';
     private config: IConfig;

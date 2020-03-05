@@ -1,12 +1,12 @@
 import { Collection, Db, MongoClient } from 'mongodb';
-import { AutoWired, Inject, Singleton } from 'typescript-ioc';
+import { OnlyInstantiableByContainer, Inject, Singleton } from 'typescript-ioc';
 import { Logger } from '../lib/Logger';
 import { ConfigService } from './ConfigService';
 import { ClientConfig, defaultClientConfig } from '../../../common/models/Client/ClientConfig';
 import { MongoClientConfig } from '../models/mongoDb/MongoClientConfig';
 
 @Singleton
-@AutoWired
+@OnlyInstantiableByContainer
 export class UserDatabase {
     private static readonly log = Logger.getLogger(UserDatabase);
 

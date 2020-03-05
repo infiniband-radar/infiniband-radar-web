@@ -1,4 +1,4 @@
-import { AutoWired, Inject, Singleton } from 'typescript-ioc';
+import { OnlyInstantiableByContainer, Inject, Singleton } from 'typescript-ioc';
 import { ConfigService } from './ConfigService';
 import { Logger } from '../lib/Logger';
 import { InfluxDB, ISchemaOptions, FieldType, IPoint, escape } from 'influx';
@@ -96,7 +96,7 @@ class SelfMonitoringDatabase {
 }
 
 @Singleton
-@AutoWired
+@OnlyInstantiableByContainer
 export class MetricDatabase {
     public readonly selfMonitoring: SelfMonitoringDatabase;
 

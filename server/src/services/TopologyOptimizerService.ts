@@ -1,7 +1,7 @@
 import * as Threads from 'threads';
 import * as path from 'path';
 import { performance } from 'perf_hooks';
-import { AutoWired, Inject, Singleton } from 'typescript-ioc';
+import { OnlyInstantiableByContainer, Inject, Singleton } from 'typescript-ioc';
 import { VisPreRenderedPositions } from '../../../common/models/Client/VisPreRenderdModels';
 import { Logger } from '../lib/Logger';
 import { VisDataModel } from '../../../common/models/Client/VisDataModels';
@@ -13,7 +13,7 @@ export interface TopologyOptimizerThreadResponse {
 }
 
 @Singleton
-@AutoWired
+@OnlyInstantiableByContainer
 export class TopologyOptimizerService {
     @Inject
     private static log = Logger.getLogger(TopologyOptimizerService);
