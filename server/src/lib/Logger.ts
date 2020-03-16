@@ -8,7 +8,8 @@ export enum LogLevel {
 
 export class Logger {
     private static globalLogLevel: LogLevel = LogLevel.Debug;
-    private static logLevelText: Readonly<{[level: number]: string}> = {
+    private static logLevelText: Readonly<{[level in LogLevel]: string}> = {
+        [LogLevel.Unknown]: '\x1b[31mUnknown\x1b[0m',
         [LogLevel.Error]: '\x1b[31mERROR\x1b[0m',
         [LogLevel.Warning]: '\x1b[33mWARN\x1b[0m',
         [LogLevel.Info]: '\x1b[36mINFO\x1b[0m',
