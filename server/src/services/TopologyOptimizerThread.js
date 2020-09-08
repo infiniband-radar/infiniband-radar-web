@@ -6,7 +6,7 @@ module.exports = function topologyOptimizerThread(visData) {
     return new Promise((resolve) => {
         const network = new vis.Network(undefined, visData, options);
 
-        network.once('stabilized', ({iterations}) => {
+        network.once('stabilizationIterationsDone', () => {
             const visPositions = {};
             const nodes = network.body.nodes;
             for (const nodeId of Object.keys(nodes)) {
@@ -18,8 +18,8 @@ module.exports = function topologyOptimizerThread(visData) {
             }
             resolve({
                 visPositions,
-                iterations,
+                iterations: 1, // legacy. Was available when 'stabilized' was used, but now we are using 'stabilizationIterationsDone'
             });
-        })
+        });
     });
 };

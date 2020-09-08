@@ -5,7 +5,8 @@
         },
         "stabilization": {
             "enabled": true,
-            "updateInterval": 5000
+            "updateInterval": 10000,
+            "iterations": 10000
         }
 
     },
